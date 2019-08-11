@@ -1,0 +1,30 @@
+﻿extends layout
+
+block content
+  h1 Products.json
+  form(method='POST', action='/busca')
+    .form-group
+      label Filtro:
+      input.form-control(name='name', type='text')
+      input.btn.btn-primary(type='submit', value='Submit')
+    table(style='width:100%', border='1')    
+    tr
+        td
+            label Ordenar:
+        td
+            a.form-control(href="/crescente") Menor Preço    
+        td
+            a.form-control(href="/decrescente") Maior Preço
+    table
+        tr
+          td id
+          td Nome
+          td Price
+          td Spcefication
+        for produto in data
+          tr
+            td=produto.id
+            td=produto.name
+            td=produto.price
+            td=produto.specifications
+
